@@ -23,6 +23,7 @@ pipeline {
     	}
     	stage('Promote') {
     		steps {
+    			echo "mvn package"
     			echo "Promoting package"
     		}
     	}
