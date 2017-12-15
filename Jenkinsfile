@@ -3,17 +3,12 @@ pipeline {
 	stages {
 	    stage('Compile') {
 			steps {
-				try{
-					timeout(time: 1, unit:'MINUTES'){
-						sh "sleep 4"
-						sh "./task.sh"
-						echo "mvn clean compile"
-						echo "Build Quality mining"
-					}
-				}catch(Exception){
-					currentBuild.result = 'UNSTABLE'
-				}
-
+	    		timeout(time: 1, unit:'MINUTES'){
+	    			sh "sleep 4"
+		    		sh "./task.sh"
+		    		echo "mvn clean compile"
+		    		echo "Build Quality mining"
+   				}
 	    	}
 	    }
     	stage('Unit Test') {
