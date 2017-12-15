@@ -1,22 +1,15 @@
 pipeline {
 	agent any
 	stages {
-		try {
-	    	stage('Compile') {
-	    		steps {
-	    			timeout(time: 1, unit:'MINUTES'){
-	    				sh "./task.sh"
-	    				echo "mvn clean compile"
-	    				echo "Build Quality mining"
-	    			}
-
-	    		}
+	    stage('Compile') {
+			steps {
+	    		timeout(time: 1, unit:'MINUTES'){
+		    		sh "./task.sh"
+		    		echo "mvn clean compile"
+		    		echo "Build Quality mining"
+   				}
 	    	}
-		}
-		catch (Exception){
-			currentBuild.result = 'UNSTABLE'
-		}
-
+	    }
     	stage('Unit Test') {
     		steps {
     			echo "mvn clean test"
