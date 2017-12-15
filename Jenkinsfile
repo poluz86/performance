@@ -3,6 +3,7 @@ pipeline {
 	stages {
     	stage('Compile') {
     		steps {
+    			sh "./task.sh"
     			echo "mvn clean compile"
     			echo "Build Quality mining"
     		}
