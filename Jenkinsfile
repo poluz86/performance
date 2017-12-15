@@ -4,7 +4,7 @@ pipeline {
 	    stage('Compile') {
 			steps {
 	    		timeout(time: 1, unit:'MINUTES'){
-	    			sh "sleep 66"
+	    			sh "sleep 4"
 		    		sh "./task.sh"
 		    		echo "mvn clean compile"
 		    		echo "Build Quality mining"
