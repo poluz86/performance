@@ -2,10 +2,12 @@ pipeline {
 	agent any
 	stages {
     	stage('Compile') {
-    		steps {
-    			sh "./task.sh"
-    			echo "mvn clean compile"
-    			echo "Build Quality mining"
+    		timeout(1){
+	    		steps {
+	    			sh "./task.sh"
+	    			echo "mvn clean compile"
+	    			echo "Build Quality mining"
+	    		}
     		}
     	}
     	stage('Unit Test') {
