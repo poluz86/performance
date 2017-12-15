@@ -1,11 +1,6 @@
 pipeline {
 	agent any
 	stages {
-		stage('Checkout') {
-			steps {
-				echo "Hello!"
-         	}
-	}
     	stage('Compile') {
     		steps {
     			echo "mvn clean compile"
