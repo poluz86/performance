@@ -1,6 +1,10 @@
 pipeline {
 	agent any
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr:'5'))
+    }
+
 	environment {
         PATH = "$PATH:/home/paolo/Documents/apache-jmeter-3.3/bin/"
     }
