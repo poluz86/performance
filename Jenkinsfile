@@ -11,9 +11,9 @@ pipeline {
     	stage('Performance Test') {
     		steps {
 				timeout(time:10, unit:'MINUTES'){
-					echo "Performance Test execution"
+					sh 'jmeter -n -t ./Presentation_example.jmx -l ./report.jtl'
+					perfReport '*report.jtl'
 				}
-
     		}
     	}
     	stage('Mining') {
