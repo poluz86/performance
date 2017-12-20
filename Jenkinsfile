@@ -1,33 +1,24 @@
 pipeline {
 	agent any
 	stages {
-	    stage('Compile') {
+	    stage('API Test') {
 			steps {
-	    		timeout(time: 1, unit:'MINUTES'){
-	    			sh "sleep 4"
-		    		sh "./task.sh"
-		    		echo "mvn clean compile"
-		    		echo "Build Quality mining"
+	    		timeout(time: 10, unit:'MINUTES'){
+		    		echo "API Test execution"
    				}
 	    	}
 	    }
-    	stage('Unit Test') {
+    	stage('Performance Test') {
     		steps {
-    			echo "mvn clean test"
-    			echo "junit report.xml"
+				timeout(time:10, unit:'MINUTES'){
+					echo "Performance Test execution"
+				}
+
     		}
     	}
-    	stage('SonarQube') {
+    	stage('Mining') {
     		steps {
-    			echo "sonar projectKey"
-    			echo "Cyclomatic Complexity mining"
-    			echo "Technical Debt mining"
-    		}
-    	}
-    	stage('Promote') {
-    		steps {
-    			echo "mvn package"
-    			echo "Promoting package"
+    			echo "Mining Both Reports"
     		}
     	}
    }
