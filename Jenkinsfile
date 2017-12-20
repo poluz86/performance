@@ -1,5 +1,10 @@
 pipeline {
 	agent any
+
+	environment {
+        PATH = "$PATH:/home/paolo/Documents/apache-jmeter-3.3/bin/"
+    }
+
 	stages {
 	    stage('API Test') {
 			steps {
